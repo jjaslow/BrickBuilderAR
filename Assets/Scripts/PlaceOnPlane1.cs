@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -19,7 +20,7 @@ public class PlaceOnPlane1 : MonoBehaviour
 
 
     public List<Brick> placedBricks;
-    Quaternion brickRotation;
+    bool touchAllowed = true;
 
     void Awake()
     {
@@ -34,12 +35,16 @@ public class PlaceOnPlane1 : MonoBehaviour
         {
             var mousePosition = Input.mousePosition;
             touchPosition = new Vector2(mousePosition.x, mousePosition.y);
+            touchAllowed = false;
+            StartCoroutine(ReEnableTouch());
             return true;
         }
 #else
         if (Input.touchCount > 0)
         {
             touchPosition = Input.GetTouch(0).position;
+            touchAllowed = false;
+            StartCoroutine(ReEnableTouch());
             return true;
         }
 #endif
@@ -50,8 +55,13 @@ public class PlaceOnPlane1 : MonoBehaviour
 
     void Update()
     {
+
+        if (!touchAllowed)
+            return;
+
         if (!TryGetTouchPosition(out Vector2 touchPosition))
             return;
+
 
         if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
         {
@@ -59,26 +69,25 @@ public class PlaceOnPlane1 : MonoBehaviour
             // will be the closest hit.
             var hitPose = s_Hits[0].pose;
 
-            GameObject newBrick = null;
+            GameObject newBrick;
 
-            if (placedBricks.Count == 0)
-            {
-                brickRotation = hitPose.rotation;
-                newBrick = Instantiate(m_PlacedPrefab, hitPose.position, brickRotation);
-            }
-            else
-            {
-                newBrick = Instantiate(m_PlacedPrefab, hitPose.position, brickRotation);
-            }
+            newBrick = Instantiate(m_PlacedPrefab, hitPose.position, Quaternion.identity);
 
+            Brick brickDetails = newBrick.GetComponent<Brick>();
+            brickDetails.SetBrickDetails();
 
-            placedBricks.Add(newBrick.GetComponent<Brick>());
-            newBrick.GetComponent<Renderer>().material.color = Color.red;
-
+            placedBricks.Add(brickDetails);
         }
     }
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
     ARRaycastManager m_RaycastManager;
+
+  
+    IEnumerator ReEnableTouch()
+    {
+        yield return new WaitForSeconds(2f);
+        touchAllowed = true;
+    }
 }
