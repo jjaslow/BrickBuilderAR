@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Temp
+/Library
+/Builds
+/ARFoundationRemoteCompanionApp
+/Assets/arfoundation-samples-4.1
+/Assets/Plugins/ARFoundationRemoteInstaller
