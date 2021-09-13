@@ -728,6 +728,9 @@
     <Reference Include="Unity.Subsystem.Registration">
       <HintPath>Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
+    <Reference Include="ARFoundationRemote.Runtime">
+      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -749,8 +752,14 @@
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
+    <Reference Include="ARFoundationRemote.Editor">
+      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ARFoundationRemote.Meshing">
+      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Meshing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
@@ -782,20 +791,15 @@
     <Reference Include="ARFoundationRemote.RuntimeEditor">
       <HintPath>Library\ScriptAssemblies\ARFoundationRemote.RuntimeEditor.dll</HintPath>
     </Reference>
-    <Reference Include="ARFoundationRemote.Runtime">
-      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="ARFoundationRemote.Editor">
-      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="ARFoundationRemote.Meshing">
-      <HintPath>Library\ScriptAssemblies\ARFoundationRemote.Meshing.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{4927A823-EAE9-9274-89C3-E9E4AFBFC17F}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="ARFoundationRemote.Installer.Editor.csproj">
+      <Project>{63360A9C-8B78-E6D2-A350-CC52E29A1924}</Project>
+      <Name>ARFoundationRemote.Installer.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.ARFoundation.Editor.csproj">
       <Project>{59BE87CC-AA94-F86E-7552-BF14773D6023}</Project>
@@ -804,10 +808,6 @@
     <ProjectReference Include="Unity.XR.ARFoundation.csproj">
       <Project>{5830BDFC-C789-0C26-22B3-77E16295623C}</Project>
       <Name>Unity.XR.ARFoundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="ARFoundationRemote.Installer.Editor.csproj">
-      <Project>{63360A9C-8B78-E6D2-A350-CC52E29A1924}</Project>
-      <Name>ARFoundationRemote.Installer.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

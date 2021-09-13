@@ -56,11 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\CompanionAppInstaller.cs" />
-    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\ARFoundationRemoteInstaller.cs" />
-    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\BuildTargetExtensions.cs" />
-    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\AssetPostprocessor.cs" />
     <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\ARFoundationRemoteInstallerInspector.cs" />
+    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\BuildTargetExtensions.cs" />
+    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\ARFoundationRemoteInstaller.cs" />
+    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\CompanionAppInstaller.cs" />
+    <Compile Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\AssetPostprocessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\ARFoundationRemoteInstaller\Scripts\Editor\ARFoundationRemote.Installer.Editor.asmdef" />

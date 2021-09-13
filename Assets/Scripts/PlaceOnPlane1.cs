@@ -3,29 +3,35 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.EventSystems;
 
-/// <summary>
-/// Listens for touch events and performs an AR raycast from the screen touch point.
-/// AR raycasts will only hit detected trackables like feature points and planes.
-///
-/// If a raycast hits a trackable, the <see cref="placedPrefab"/> is instantiated
-/// and moved to the hit position.
-/// </summary>
+
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlaceOnPlane1 : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
     GameObject m_PlacedPrefab;
+    [SerializeField] BrickDetails brickDetails;
 
-
-    public List<Brick> placedBricks;
     bool touchAllowed = true;
+
+    Camera mainCamera;
+    RaycastHit hit;
+    Ray ray;
+
+    private int fingerID;
+    float upPosition = 1;
 
     void Awake()
     {
-        m_RaycastManager = GetComponent<ARRaycastManager>();
-        placedBricks = new List<Brick>();
+        mainCamera = Camera.main;
+
+#if UNITY_EDITOR
+        fingerID = -1;
+#else
+    fingerID = 0;
+#endif
     }
 
     bool TryGetTouchPosition(out Vector2 touchPosition)
@@ -36,7 +42,6 @@ public class PlaceOnPlane1 : MonoBehaviour
             var mousePosition = Input.mousePosition;
             touchPosition = new Vector2(mousePosition.x, mousePosition.y);
             touchAllowed = false;
-            StartCoroutine(ReEnableTouch());
             return true;
         }
 #else
@@ -44,7 +49,6 @@ public class PlaceOnPlane1 : MonoBehaviour
         {
             touchPosition = Input.GetTouch(0).position;
             touchAllowed = false;
-            StartCoroutine(ReEnableTouch());
             return true;
         }
 #endif
@@ -55,39 +59,51 @@ public class PlaceOnPlane1 : MonoBehaviour
 
     void Update()
     {
-
         if (!touchAllowed)
             return;
 
         if (!TryGetTouchPosition(out Vector2 touchPosition))
             return;
 
-
-        if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
+        if (EventSystem.current.IsPointerOverGameObject(fingerID))
         {
-            // Raycast hits are sorted by distance, so the first one
-            // will be the closest hit.
-            var hitPose = s_Hits[0].pose;
+            Debug.Log("Clicked on the UI");
+            ReEnableTouch();
+            return;
+        }
 
-            GameObject newBrick;
 
-            newBrick = Instantiate(m_PlacedPrefab, hitPose.position, Quaternion.identity);
+        ray = mainCamera.ScreenPointToRay(touchPosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log("hit: "+ hit.collider.tag);
 
-            Brick brickDetails = newBrick.GetComponent<Brick>();
-            brickDetails.SetBrickDetails();
 
-            placedBricks.Add(brickDetails);
+            Vector3 placePosition = new Vector3(hit.point.x, hit.point.y + upPosition, hit.point.z);
+
+            GameObject newBrick = Instantiate(m_PlacedPrefab, placePosition, Quaternion.identity);
+
+            Brick brick = newBrick.GetComponent<Brick>();
+            SetBrickLevel(hit, brick);
+            brick.SetColor(brickDetails.GetColor());
+            brick.SetSize((int)brickDetails.GetSize());
+
+            BrickManager.Instance.AddBrickToList(brick);
         }
     }
 
-    static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
-    ARRaycastManager m_RaycastManager;
-
-  
-    IEnumerator ReEnableTouch()
+    void SetBrickLevel(RaycastHit hit, Brick newBrick)
     {
-        yield return new WaitForSeconds(2f);
+        if (hit.transform.CompareTag("Brick"))
+            newBrick.level = hit.transform.GetComponent<Brick>().level + 1;
+        else
+            newBrick.level = 0;
+    }
+
+
+    public void ReEnableTouch()
+    {
         touchAllowed = true;
     }
 }
