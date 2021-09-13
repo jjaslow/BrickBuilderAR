@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Brick : MonoBehaviour
 {
     public Size size;
@@ -55,8 +56,6 @@ public class Brick : MonoBehaviour
             ReEnableTouch();
             return;
         }
-
-        //Vector3 finalDestination1 = BrickManager.Instance.placedBricks[0].transform.position + (.1f * level * Vector3.up);
 
         Vector3 intermediatePosition = new Vector3(finalPosition.x, finalPosition.y, transform.position.z);
 

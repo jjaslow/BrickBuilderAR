@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,95 +53,11 @@
     <UnityVersion>2021.1.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\BoneController.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\CollaborationNetworkingIndicator.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Meshing\Scripts\ProjectileLauncher.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\HDRLightEstimation.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\SupportChecker.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\EyePoseVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\PointCloud\SwitchPointCloudVisualizationMode.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\FaceTracking\ToggleCameraFacingDirection.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\FixationPoint3DVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\Tooltip.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\LightEstimation\FacingDirectionManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\LightEstimation\Rotator.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\DisplayTrackingState.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Plane Detection\PlaneClassificationLabeler.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\CustomConfigurationChooser.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\CanvasTextManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\DisableVerticalPlanes.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\DynamicLibrary.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ScreenSpaceJointVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\ActiveMenu.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ARFeatheredPlaneMeshVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\FaceMaterialSwitcher.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Meshing\Scripts\ToggleMeshClassification.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\PlaceMultipleObjectsOnPlane.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\PlaneDetectionController.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\CameraGrain\CameraGrain.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\MakeAppearOnPlane.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\InputSystem\InputSystem_PlaceOnPlane.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\TestBodyAnchorScale.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\PlaceOnPlane.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\FaceTracking\DisplayFaceInfo.cs" />
     <Compile Include="Assets\Scripts\BrickDetails.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\EnvironmentProbeVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\CameraConfigController.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ThermalState\Scripts\ThermalStateForIOS.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\AnchorCreator.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\EyeTrackingUI.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\AnchorInfoManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\DisplayDepthImage.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\ImageTrackingWithMultiplePrefabs\PrefabImagePairManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARKitGeoAnchors\EnableGeoAnchors.cs" />
     <Compile Include="Assets\Scripts\Brick.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\Colorizer.cs" />
     <Compile Include="Assets\Scripts\PlaceOnPlane1.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\BackButton.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\CheckRuntimeDepth.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARKitCoachingOverlay\CustomSessionDelegate.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\BasicLightEstimation.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\BasicImageTracking\TrackedImageInfoManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ARKitBlendShapeVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\HumanBodyTracker.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\ImageTrackingWithMultiplePrefabs\DynamicPrefab.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\CheckAvailableFeatures.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\FixationPoint2DVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\DisplayARSessionInformation.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ARCoreFaceRegionManager.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARKitCoachingOverlay\ARKitCoachingOverlay.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\HDRLightEstimationUI.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\CpuImageSample.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ThermalState\Scripts\FeaturesReporting.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ScaleController.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ARCollaborationData\CollaborativeSession.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\ARWorldMapController.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ARKit\ThermalState\Scripts\ThermalStateHandling.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\CameraSwapper.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\UX\ARSceneSelectUI.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\Logger.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Meshing\Scripts\MeshClassificationFracking.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scenes\PointCloud\ARAllPointCloudPointsParticleVisualizer.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\BasicLightEstimationUI.cs" />
-    <Compile Include="Assets\arfoundation-samples-4.1\Assets\Scripts\RotationController.cs" />
     <Compile Include="Assets\Scripts\BrickManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Shaders\HumanStencil.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\Prefabs\FlowerPrefab\Shaders\Vegetation.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Meshing\Shaders\MeshingOverlay.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\Object Tracking\Printable Templates\README.txt" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\PlaneOcclusion\PlaneOcclusionShader.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Shaders\FeatheredPlaneShader.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Shaders\DepthGradient.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Shaders\NormalOverlay.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\ImageTracking\Prefabs\FireFliesPrefab\Shaders\FireFly.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Shaders\Normal.shader" />
-    <None Include="Assets\arfoundation-samples-4.1\ProjectSettings\ProjectVersion.txt" />
-    <None Include="Assets\arfoundation-samples-4.1\Assets\Scenes\CameraGrain\CameraGrain.shader" />
+    <Compile Include="Assets\Scripts\SaveToJson.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

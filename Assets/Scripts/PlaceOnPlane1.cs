@@ -67,8 +67,8 @@ public class PlaceOnPlane1 : MonoBehaviour
 
         if (EventSystem.current.IsPointerOverGameObject(fingerID))
         {
-            Debug.Log("Clicked on the UI");
-            ReEnableTouch();
+            //Debug.Log("Clicked on the UI");
+            Invoke("ReEnableTouch", 0.5f);
             return;
         }
 
